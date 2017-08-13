@@ -1,0 +1,240 @@
+body {
+  font-family: Josefin Sans;
+  font-size: 20px;
+  color: #000;
+}
+
+/* logo in the top left */
+.logo {
+  padding: 30px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+.logo a {
+  font-size: 25px;
+  color: #000;
+  /*text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;*/
+}
+.logo a:hover {
+  color: #696969;
+  text-decoration: none;
+}
+
+.logo a:focus {
+  text-decoration: none;
+}
+
+/* hero + hero content */
+.header-position {
+/*  margin: auto;
+  width: 50%;*/
+}
+/* header is the navbar */
+.header {
+  color: #fff;
+  padding-left: 0px;
+
+}
+.header li {
+  display: inline;
+}
+.header li a, .header li a:visited {
+  color: #fff;
+  font-size: 25px;
+}
+.header li a:hover {
+  text-decoration: none;
+  color: #d3d3d3;
+}
+
+.header li a:focus {
+  text-decoration: none;
+}
+
+.hero {
+  background-image: url("../images/hero-dark.jpg");
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+}
+.hero-content {
+  color: #fff;
+  font-size: 70px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+
+.center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  border: 2px solid #fff;
+  padding: 5px;
+}
+
+/* page widths */
+.info {
+  height: 100vh;
+  padding-top: 30px;
+}
+
+.contact {
+
+  padding-top: 30px;
+}
+
+/* headers */
+.h1-style {
+  padding-bottom: 50px;
+}
+
+.h1-style-center {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  padding-top: 30px;
+}
+h1 {
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  padding: 15px;
+}
+
+.bkg-style-1 {
+  background-color: #C8C8C8;
+}
+.bkg-style-2 {
+  background-color: #D3D3D3;
+}
+.bkg-style-3 {
+  background-color: #EEEEEE;
+}
+.bkg-style-4 {
+  background-color: #2B60DE;
+  color: #fff;
+}
+.bkg-style-4 h1 {
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+/* ABOUT */
+.about-spacing {
+  padding: 20px;
+}
+
+.school-description p{
+  margin: 0;
+  padding: 0;
+}
+.school-images {
+  height: 100px;
+  width: 100px;
+}
+
+.courses li {
+  list-style: circle;
+}
+
+/* WORK EXPERIENCE */
+.img-containters {
+  padding: 10px;
+}
+.image-text {
+  padding-top: 10px;
+}
+.work-images {
+  width: 100%;
+  height: 300px;
+}
+.crowdkeep-logo {
+  height: 300px;
+  background-color: #152a44;
+}
+.crowdkeep-img {
+  max-width: 200px;
+}
+
+#experience a:hover, #experience a div:hover {
+  opacity: .7;
+}
+
+.button-div {
+  padding-top: 40px;
+}
+.resume-button, .resume-button:visited {
+  background-color: #D3D3D3;
+  border: 2px solid #2B60DE;
+  border-radius: 5%;
+  color: #2B60DE;
+  padding: 10px;
+}
+
+.resume-button:hover {
+  text-decoration: none;
+  color: red;
+  border: 2px solid #f00;
+  border-radius: 5%;
+  color: #f00;
+  cursor: pointer;
+}
+.resume-button:focus {
+  text-decoration: none;
+}
+
+/* PROJECTS */
+
+.deck-images {
+  height: 200px;
+  width: 100%;
+}
+
+.card-style {
+  border: none;
+  border: 1px solid #000;
+}
+.card-style a {
+  padding: 5px;
+  -moz-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.card-style a:hover {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+
+/* CONTACT */
+.contact-images {
+  height: 50px;
+  width: 50px;
+}
+.contact-content a {
+  -moz-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.contact-content a:hover {
+  -moz-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+
+  color: #fff;
+}
+
+.footer-icons {
+  color: white;
+  font-size: 55px;
+}
