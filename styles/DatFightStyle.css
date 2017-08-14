@@ -1,0 +1,167 @@
+body{
+    background:  linear-gradient( rgba(0, 0, 0, 0.08),rgba(0, 0, 0, 0.08) ),
+        url('../images/datfight/fight.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+h1{
+    margin: 0;
+    font-size: 80px;
+    color:white;
+    text-align:center;
+    font-family: Josefin Sans;
+}
+
+#pics{
+    margin:left;
+}
+
+#pics2{
+    margin:right;
+    float:right;
+}
+
+#partner{
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    padding-left: 7%;
+    bottom:0;
+}
+
+#weeb{
+    position: absolute;
+    height: 250px;
+    width:250px;
+    padding-left: 21%;
+    bottom:0;
+}
+
+#datboi{
+    position: absolute;
+    float: right;
+    height: 300px;
+    width:300px;
+     padding-left: 76%;
+    bottom:0;
+}
+p{
+    margin: 0;
+    color:white;
+    text-align:center;
+    font-family: Josefin Sans;
+}
+
+
+#outputBox{
+    margin: 0;
+    color:white;
+    text-align:center;
+    font-family: Josefin Sans;
+    height: 250px;
+    width: 500px;
+
+}
+legend{
+    font-size: 30px;
+}
+#fs1{
+    margin: 0;
+    color:white;
+    text-align:center;
+    font-family: Josefin Sans;
+    height: 250px;
+    width: 500px;
+}
+
+/*.button{
+    font-size: 20px;
+    float: right;
+}
+
+.button1{
+    font-size: 20px;
+    float: left;
+} */
+
+#tbl{
+    text-align: center;
+    align:center;
+      margin:auto;
+}
+.button {
+  border: 1px solid #000;
+   padding: 7.5px 15px;
+   border-radius: 30px;
+   color: #000;
+   font-size: 16px;
+   font-family: helvetica, serif;
+   vertical-align: middle;
+}
+.button:hover, .button:active {
+  cursor: pointer;
+  color: #fff;
+  background-color: #000;
+}
+.button:focus {
+  outline: none;
+}
+textarea{
+    background: transparent;
+    border: 0 none;
+    overflow: auto;
+    outline: none;
+    resize: none;
+    margin: 0;
+    color:white;
+    text-align:center;
+    font-family: Josefin Sans;
+    height: 200px;
+    width: 500px;
+    font-size: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 0px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #D0D3D4;
+  border: 0px none #ffffff;
+  border-radius: 40px;
+  -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,.1);
+
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #ffffff;
+  width:5px;
+}
+::-webkit-scrollbar-track {
+ background: none;
+  border: 0px none #ffffff;
+  border-radius: 40px;
+
+}
+::-webkit-scrollbar-track:hover {
+  background: none;
+}
+::-webkit-scrollbar-track:active {
+ background: none;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+    width:0px;
+  height:0px;
+}

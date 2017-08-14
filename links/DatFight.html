@@ -1,0 +1,510 @@
+<html>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href="../styles/DatFightStyle.css" rel='stylesheet'>
+
+    </head>
+
+    <body>
+
+
+        <div id="output">
+            <table id="tbl">
+                <tr>
+                <h1 id="h1">DAT FIGHT</h1>
+                </tr>
+
+                <tr>
+                    <td>
+                        <fieldset id="fs1">
+                            <textarea id="text1" readonly> Your Initial Health: 20 | Partner's Initial Health: 20&#13;&#10; Dat Boi's Initial Health: 40
+                            </textarea>
+                            <legend style="color: white;"> Health: </legend>
+                        </fieldset>
+                    </td>
+
+                    <td>
+                        <fieldset id="outputBox" style="solid white;"> <textarea id="text2" readonly>Moves made occur randomly. &#13;&#10;Click "Fight!" To Begin&#13;&#10;</textarea>
+                            <legend style="color: white;"> Play By Play: </legend>
+                        </fieldset>
+                    </td>
+                </tr>
+
+                <br>
+                <tr>
+                    <td>
+                        <button class="button" onclick="playGame()"> Fight! </button>
+                    </td>
+                    <td>
+                        <button class="button" onClick="history.go(0)"> Refresh </button>
+                    </td>
+                </tr>
+            </table>
+
+            <br>
+        </div>
+
+
+
+        <div id="pics">
+
+            <img id ="partner" src="../images/datfight/sprite.png" />
+            <img id ="weeb" src="../images/datfight/weeba1.png" />
+            <img id ="datboi" src="../images/datfight/datboi.png" />
+        </div>
+        <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+        <script>
+            changeBackground();
+
+            var fighting = true;
+            var firstPlayerAlive = true;
+            var secondPlayerAlive = true;
+
+            var totalDamageWeebTakes = 0;
+            var totalDamageMemeTakes = 0;
+            var totalDamagePartnerTakes = 0;
+
+            var total
+            var yourHealth = 20;
+            var partnerHealth = 20;
+            var enemyHealth=40;
+
+            function playGame(){
+                var whoseTurn = Math.floor(Math.random() * (11 - 0 + 1) ) + 0;
+                var whosHit = Math.floor(Math.random() * (1 - 0 + 1) ) + 0;
+
+               /*Damage to us */
+                var damageMemeDoes = Math.floor(Math.random() * (9 - 3 + 1) ) + 3;
+                /*Damage to meme */
+                var damageYouDo = Math.floor(Math.random() * (8 - 1 + 1) ) + 1;
+                var damagePartnerDoes = Math.floor(Math.random() * (6 - 4 + 1) ) + 4;
+
+                if (fighting) {
+
+                      function enemyAttackFirst(){
+                          moveMemeAttackYou();
+                          playSoundMeme();
+
+                          yourHealth-=damageMemeDoes;
+                          totalDamageWeebTakes += damageMemeDoes;
+
+                          $("#text2").html($('#text2').html() + "&#13;&#10;Dat Boi did " + damageMemeDoes + " damage to you!");
+
+                          $("#text1").html($('#text1').html() + "&#13;&#10;Your Current Health: " + yourHealth);
+
+
+                          if(totalDamageWeebTakes>=20){
+                               $("#text2").html($('#text2').html() + "&#13;&#10;You have died");
+
+                              firstPlayerAlive= false;
+                              deadPlayer1();
+                          }
+                      }
+
+                      function enemyAttackSecond(){
+                          moveMemeAttackPartner();
+                          playSoundMeme();
+
+                          partnerHealth-=damageMemeDoes;
+                          totalDamagePartnerTakes += damageMemeDoes;
+
+                          $("#text2").html($('#text2').html() + "&#13;&#10;Dat Boi did " + damageMemeDoes + " damage to your partner!");
+
+                          $("#text1").html($('#text1').html() + "&#13;&#10;Partner's Current Health: " + partnerHealth);
+
+                          if( totalDamagePartnerTakes>=20){
+                              $("#text2").html($('#text2').html() + "&#13;&#10;Partner has died");
+
+                              secondPlayerAlive= false;
+                              deadPlayer2();
+                          }
+                      }
+
+                      function partnerAttack(){
+                          movePartner();
+                          playSoundPartner();
+
+                          enemyHealth-=damagePartnerDoes;
+                          totalDamageMemeTakes += damagePartnerDoes;
+
+                          $("#text2").html($('#text2').html() + "&#13;&#10;Partner did " + damagePartnerDoes + " damage to Dat Boi");
+
+                          $("#text1").html($('#text1').html() + "&#13;&#10;Dat Boi's Current Health: " +enemyHealth);
+
+                      }
+
+                      function youAttack(){
+                          moveWeeb();
+                          playSoundYou();
+
+                          enemyHealth-=damageYouDo;
+                          totalDamageMemeTakes += damageYouDo;
+
+                          $("#text2").html($('#text2').html() + "&#13;&#10;You did " + damageYouDo + " damage to Dat Boi");
+
+                          $("#text1").html($('#text1').html() + "&#13;&#10;Dat Boi's Current Health: " +enemyHealth);
+
+                      }
+
+                    function enemyAttackFirstCrit(){
+                          moveMemeCrit();
+                           setTimeout(playSoundMemeCrit,1000);
+
+                          yourHealth-=damageMemeDoes;
+                          totalDamageWeebTakes += damageMemeDoes;
+
+                          $("#text2").html($('#text2').html() + "&#13;&#10;Dat Boi did " + damageMemeDoes + " damage to you!");
+
+                          $("#text1").html($('#text1').html() + "&#13;&#10;Your Current Health: " + yourHealth);
+
+
+                          if(totalDamageWeebTakes>=20){
+                               $("#text2").html($('#text2').html() + "&#13;&#10;You have died");
+
+                              firstPlayerAlive= false;
+                              deadPlayer1Crit();
+                          }
+                      }
+
+                      function enemyAttackSecondCrit(){
+                          moveMemeCrit();
+                         setTimeout(playSoundMemeCrit,1000);
+
+
+
+                          partnerHealth-=damageMemeDoes;
+                          totalDamagePartnerTakes += damageMemeDoes;
+
+                           $("#text2").html($('#text2').html() + "&#13;&#10;Dat Boi did " + damageMemeDoes + " damage to your partner!");
+
+                          $("#text1").html($('#text1').html() + "&#13;&#10;Partner's Current Health: " + partnerHealth);
+
+                          if( totalDamagePartnerTakes>=20){
+                              $("#text2").html($('#text2').html() + "&#13;&#10;Partner has died");
+
+                              secondPlayerAlive= false;
+                              deadPlayer2Crit();
+                          }
+                      }
+
+
+
+                    if (whoseTurn==0 || whoseTurn==1 || whoseTurn==2) {
+
+
+                        if(firstPlayerAlive){
+                            youAttack();
+                        }
+                        else{
+                            partnerAttack();
+                        }
+
+                           if(totalDamageMemeTakes>=40){
+                             $("#text2").html($('#text2').html() + "&#13;&#10;Dat Boi has been killed!");
+
+                            fighting = false;
+                            endOfGame();
+
+                        }
+                    }
+
+
+                    else if(whoseTurn==3 || whoseTurn ==4 || whoseTurn==5 ){
+
+                        if(secondPlayerAlive){
+                            partnerAttack();
+                        }
+                        else{
+                            youAttack();
+                        }
+
+                           if(totalDamageMemeTakes>=40){
+                             $("#text2").html($('#text2').html() + "&#13;&#10;Dat Boi has been killed!");
+
+                            fighting = false;
+                            endOfGame();
+
+                        }
+
+                    }
+
+                    else if(whoseTurn == 6 || whoseTurn==7 || whoseTurn==8 || whoseTurn==9){
+
+                        if(whosHit==0){
+                           if(firstPlayerAlive){
+                               enemyAttackFirst();
+                           }
+                            else{
+                                enemyAttackSecond();
+                            }
+                        }
+                        else{
+                            if(secondPlayerAlive){
+                                enemyAttackSecond();
+                            }
+                            else{
+                                enemyAttackFirst();
+                            }
+                        }
+                      if(firstPlayerAlive==false && secondPlayerAlive==false){
+                          $("#text2").html($('#text2').html() + "&#13;&#10;GAME OVER KID");
+                          fighting=false;
+                          gameOver();
+                        }
+                    }
+
+
+                    else {
+
+                        if(whoseTurn==10 || whoseTurn==11){
+                          damageMemeDoes=10;
+                          if(firstPlayerAlive){
+                              enemyAttackFirstCrit();
+                          }
+                          if(secondPlayerAlive){
+                              enemyAttackSecondCrit();
+                          }
+                           if(firstPlayerAlive==false && secondPlayerAlive==false){
+                          $("#text2").html($('#text2').html() + "&#13;&#10;GAME OVER KID");
+                          fighting=false;
+                          gameOver();
+                        }
+
+                      }
+                    }
+                }
+
+                var textarea = document.getElementById('text1');
+                textarea.scrollTop = textarea.scrollHeight;
+
+                var textarea = document.getElementById('text2');
+                textarea.scrollTop = textarea.scrollHeight;
+            }/* playGame */
+
+            function moveWeeb() {
+                var width = $(document).width()-710;
+
+                function goRight() {
+                    $("#weeb").animate({
+                        left: width
+                    }, 100, function() {
+                        setTimeout(goLeft, 50);
+                    });
+                }
+
+                function goLeft() {
+                    $("#weeb").animate({
+                        left: 0
+                    }, 1000, function() {
+
+                    });
+                }
+                setTimeout(goRight, 50);
+            };
+
+               function movePartner() {
+                var width = $(document).width()-560;
+
+                function goRight() {
+                    $("#partner").animate({
+                        left: width
+                    }, 100, function() {
+                        setTimeout(goLeft, 50);
+                    });
+                }
+
+                function goLeft() {
+                    $("#partner").animate({
+                        left: 0
+                    }, 1000, function() {
+
+                    });
+                }
+                setTimeout(goRight, 50);
+            };
+
+            function moveMemeAttackYou() {
+                var width = $(document).width()-2400;
+
+                function goRight() {
+                    $("#datboi").animate({
+                        left: width
+                    }, 100, function() {
+                        setTimeout(goLeft, 50);
+                    });
+                }
+
+                function goLeft() {
+                    $("#datboi").animate({
+                        left: 0
+                    }, 1000, function() {
+
+                    });
+                }
+                setTimeout(goRight, 50);
+            };
+
+
+            function moveMemeAttackPartner() {
+                var width = $(document).width()-2500;
+
+                function goRight() {
+                    $("#datboi").animate({
+                        left: width
+                    }, 100, function() {
+                        setTimeout(goLeft, 50);
+                    });
+                }
+
+                function goLeft() {
+                    $("#datboi").animate({
+                        left: 0
+                    }, 1000, function() {
+
+                    });
+                }
+                setTimeout(goRight, 50);
+            };
+
+            function moveMemeCrit() {
+                var image = document.getElementById('datboi');
+
+                function newImage(){
+                    image.src="../images/datfight/pepe.png";
+                }
+                /*setTimeout(newImage,0);*/
+                newImage();
+
+                var width = $(document).width()-2750;
+
+                function goRight() {
+                    $("#datboi").animate({
+                        left: width
+                    }, 100, function() {
+                        setTimeout(goLeft, 50);
+                    });
+                }
+
+                function goLeft() {
+                    $("#datboi").animate({
+                        left: 0
+                    }, 1000, function() {
+
+                    });
+                }
+                setTimeout(goRight, 1000);
+
+                function oldImage(){
+                    image.src="../images/datfight/datboi.png";
+                }
+                setTimeout(oldImage,2400);
+
+            };
+
+            function endOfGame(){
+                var image = document.getElementById('datboi');
+
+                function newImageEnd() {
+                    image.src="https://i651.photobucket.com/albums/uu236/416o/explosion.gif";
+                }
+                setTimeout(newImageEnd,1000);
+                setTimeout(playSoundMemeDead,500);
+
+                function oldImage(){
+                    image.src="../images/datfight/blank.png";
+                }
+                setTimeout(oldImage,2900);
+            }
+
+            function deadPlayer1(){
+                $(weeb).fadeOut(1500);
+                 setTimeout(playSoundYouDead,1100);
+            }
+            function deadPlayer2(){
+                $(partner).fadeOut(1500);
+                setTimeout(playSoundPartnerDead,1000);
+            }
+
+            function deadPlayer1Crit(){
+                setTimeout(($(weeb).fadeOut(5000)),1000);
+                 setTimeout(playSoundYouDead,1100);
+            }
+            function deadPlayer2Crit(){
+                setTimeout(($(partner).fadeOut(5000)),1000);
+                 setTimeout(playSoundPartnerDead,1000);
+            }
+
+            function gameOver(){
+                var str = document.getElementById("h1").innerHTML;
+
+                var res = str.replace("DAT FIGHT", "o shit waddup!");
+                document.getElementById("h1").innerHTML = res;
+
+
+                window.alert("o shit waddup!");
+
+            }
+
+            function changeBackground() {
+
+                var num = Math.floor(Math.random() * (4 - 1 + 1) ) + 1;
+
+                if (num==2){
+                    document.body.style.background = "url('../images/datfight/background2.png') no-repeat center center fixed";
+
+                    document.body.style.backgroundSize = 'cover';
+                }
+
+                if (num==3){
+                    document.body.style.background = "url('../images/datfight/background3.png') no-repeat center center fixed";
+
+                    document.body.style.backgroundSize = 'cover';
+                }
+
+                if (num==4){
+                   document.body.style.background = "url('../images/datfight/background4.png') no-repeat center center fixed";
+                    document.body.style.backgroundSize = 'cover';
+                }
+
+            }
+
+            function playSoundYou() {
+                var audio = new Audio('../sounds/yourAttack.wav');
+                audio.play();
+            }
+
+            function playSoundPartner() {
+                var audio = new Audio('../sounds/narutoAttack.wav');
+                audio.play();
+            }
+
+            function playSoundMeme() {
+                var audio = new Audio('../sounds/frog.wav');
+                audio.play();
+            }
+
+            function playSoundMemeCrit() {
+                var audio = new Audio('../sounds/crit.wav');
+                audio.play();
+            }
+
+            function playSoundMemeDead() {
+                var audio = new Audio('../sounds/explode.wav');
+               audio.play();
+            }
+
+            function playSoundYouDead() {
+                var audio = new Audio('../sounds/grunt.wav');
+                audio.play();
+            }
+            function playSoundPartnerDead() {
+                var audio = new Audio('../sounds/narutoDeath.wav');
+                audio.play();
+            }
+        </script>
+
+
+
+
+    </body>
+</html>

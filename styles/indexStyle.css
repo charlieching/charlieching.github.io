@@ -53,7 +53,7 @@ body {
 }
 
 .hero {
-  background-image: url("../images/hero-dark.jpg");
+  background-image: url("../images/home/hero-dark.jpg");
   background-size: cover;
   position: relative;
   height: 100vh;
