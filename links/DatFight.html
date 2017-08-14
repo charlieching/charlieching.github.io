@@ -12,6 +12,7 @@
             <table id="tbl">
                 <tr>
                 <h1 id="h1">DAT FIGHT</h1>
+                <p><i>Please note: if you cannot click the buttons, you may need to zoom out.</i></p>
                 </tr>
 
                 <tr>
@@ -33,7 +34,7 @@
                 <br>
                 <tr>
                     <td>
-                        <button class="button" onclick="playGame()"> Fight! </button>
+                        <button id="fight-button" class="button" onclick="playGame()"> Fight! </button>
                     </td>
                     <td>
                         <button class="button" onClick="history.go(0)"> Refresh </button>
@@ -70,13 +71,13 @@
             var enemyHealth=40;
 
             function playGame(){
-                var whoseTurn = Math.floor(Math.random() * (11 - 0 + 1) ) + 0;
+                var whoseTurn = Math.floor(Math.random() * (12 - 0 + 1) ) + 0;
                 var whosHit = Math.floor(Math.random() * (1 - 0 + 1) ) + 0;
 
                /*Damage to us */
-                var damageMemeDoes = Math.floor(Math.random() * (9 - 3 + 1) ) + 3;
+                var damageMemeDoes = Math.floor(Math.random() * (7 - 3 + 1) ) + 3;
                 /*Damage to meme */
-                var damageYouDo = Math.floor(Math.random() * (8 - 1 + 1) ) + 1;
+                var damageYouDo = Math.floor(Math.random() * (7 - 1 + 1) ) + 1;
                 var damagePartnerDoes = Math.floor(Math.random() * (6 - 4 + 1) ) + 4;
 
                 if (fighting) {
@@ -189,7 +190,7 @@
 
 
 
-                    if (whoseTurn==0 || whoseTurn==1 || whoseTurn==2) {
+                    if (whoseTurn==0 || whoseTurn==1 || whoseTurn==2 || whoseTurn == 3) {
 
 
                         if(firstPlayerAlive){
@@ -209,7 +210,7 @@
                     }
 
 
-                    else if(whoseTurn==3 || whoseTurn ==4 || whoseTurn==5 ){
+                    else if(whoseTurn==4 || whoseTurn ==5 || whoseTurn==6 || whoseTurn == 7){
 
                         if(secondPlayerAlive){
                             partnerAttack();
@@ -228,7 +229,7 @@
 
                     }
 
-                    else if(whoseTurn == 6 || whoseTurn==7 || whoseTurn==8 || whoseTurn==9){
+                    else if(whoseTurn==8 || whoseTurn==9 || whoseTurn==10 || whoseTurn == 11){
 
                         if(whosHit==0){
                            if(firstPlayerAlive){
@@ -256,7 +257,7 @@
 
                     else {
 
-                        if(whoseTurn==10 || whoseTurn==11){
+                      // if(whoseTurn==12){
                           damageMemeDoes=10;
                           if(firstPlayerAlive){
                               enemyAttackFirstCrit();
@@ -264,14 +265,17 @@
                           if(secondPlayerAlive){
                               enemyAttackSecondCrit();
                           }
-                           if(firstPlayerAlive==false && secondPlayerAlive==false){
-                          $("#text2").html($('#text2').html() + "&#13;&#10;GAME OVER KID");
-                          fighting=false;
-                          gameOver();
-                        }
-
-                      }
+                          if(firstPlayerAlive==false && secondPlayerAlive==false){
+                            $("#text2").html($('#text2').html() + "&#13;&#10;GAME OVER KID");
+                            fighting=false;
+                            gameOver();
+                          }
+                      //}
                     }
+                }
+                //fighting == false
+                else {
+
                 }
 
                 var textarea = document.getElementById('text1');
@@ -443,6 +447,8 @@
 
                 window.alert("o shit waddup!");
 
+                var button = document.getElementById('fight-button');
+                button.style.display = 'none';
             }
 
             function changeBackground() {
