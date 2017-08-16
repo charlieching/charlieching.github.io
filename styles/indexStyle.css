@@ -9,10 +9,9 @@ p {
 }
 /* logo in the top left */
 .logo {
-  padding: 30px;
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 30px;
+  left: 30px;
   z-index: 1;
 }
 .logo a {
