@@ -187,7 +187,7 @@ h2 {
   max-width: 200px;
 }
 
-#experience a:hover, #experience a div:hover {
+.work a:hover, .work a div:hover {
   opacity: .7;
 }
 
