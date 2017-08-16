@@ -3,16 +3,20 @@ body {
   font-size: 20px;
   color: #000;
 }
-
+p {
+  margin: 0;
+  padding: 0px;
+}
 /* logo in the top left */
 .logo {
   padding: 30px;
   position: fixed;
   top: 0px;
   left: 0px;
+  z-index: 1;
 }
 .logo a {
-  font-size: 25px;
+  font-size: 40px;
   color: #000;
   /*text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;*/
 }
@@ -21,7 +25,7 @@ body {
   text-decoration: none;
 }
 
-.logo a:focus {
+.logo a:focus, .logo a:active {
   text-decoration: none;
 }
 
@@ -83,38 +87,49 @@ body {
 
 /* page widths */
 .info {
-  height: 100vh;
-  padding-top: 30px;
-}
-
-.contact {
-
-  padding-top: 30px;
+  /*height: 100vh;*/
 }
 
 /* headers */
 .h1-style {
+  background-color: #fff;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 30px solid #fff;
   padding-bottom: 50px;
 }
 
-.h1-style-center {
+/*.h1-style-center {
   position: absolute;
   right: 0;
   left: 0;
   top: 0;
   padding-top: 30px;
-}
+}*/
+
 h1 {
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
-  padding: 15px;
+  font-weight: bold;
+  margin: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
+h2 {
+  margin: 0;
+  padding-bottom: 20px;
+}
 .bkg-style-1 {
-  background-color: #C8C8C8;
+  /*background-color: #C8C8C8;*/
+  background-color: #EEEEEE;
 }
 .bkg-style-2 {
-  background-color: #D3D3D3;
+  /*background-color: #D3D3D3;*/
+  background-color: #EEEEEE;
 }
 .bkg-style-3 {
   background-color: #EEEEEE;
@@ -123,14 +138,10 @@ h1 {
   background-color: #0F8AF8;
   color: #fff;
 }
-.bkg-style-4 h1 {
-  border-left: 1px solid #fff;
-  border-right: 1px solid #fff;
-}
 
 /* ABOUT */
 .about-spacing {
-  padding: 20px;
+  padding-bottom: 80px;
 }
 
 .school-description p{
@@ -144,6 +155,17 @@ h1 {
 
 .courses li {
   list-style: circle;
+}
+.lang-list {
+  margin: 0;
+}
+.lang-list li {
+  display: inline-block;
+  padding: 10px;
+  background-color: #D3D3D3;
+
+  border-radius: 3px;
+
 }
 
 /* WORK EXPERIENCE */
@@ -171,21 +193,21 @@ h1 {
 
 .button-div {
   padding-top: 40px;
+  padding-bottom: 80px;
 }
-.resume-button, .resume-button:visited {
-  background-color: #D3D3D3;
-  border: 2px solid #2B60DE;
+.resume-button, .resume-button:focus {
+  background-color: #EEEEEE;
+  border: 2px solid #0F8AF8;
   border-radius: 5%;
-  color: #2B60DE;
+  color: #0F8AF8;
   padding: 10px;
 }
 
 .resume-button:hover {
   text-decoration: none;
-  color: red;
-  border: 2px solid #f00;
+  opacity: .7;
   border-radius: 5%;
-  color: #f00;
+  color: #0F8AF8;
   cursor: pointer;
 }
 .resume-button:focus {
@@ -194,14 +216,19 @@ h1 {
 
 /* PROJECTS */
 
+.project-content {
+  padding-bottom: 40px;
+}
 .deck-images {
   height: 200px;
   width: 100%;
 }
-
+.card-deck {
+  padding-bottom: 40px;
+}
 .card-style {
   border: none;
-  border: 1px solid #000;
+  border: 1px solid #D3D3D3;
 }
 .card-style a {
   padding: 5px;
@@ -235,6 +262,10 @@ h1 {
 }
 
 .footer-icons {
-  color: white;
+  color: #fff;
   font-size: 55px;
+}
+
+.copyright {
+  padding: 40px;
 }
