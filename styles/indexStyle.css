@@ -228,6 +228,7 @@ h2 {
 .card-style {
   border: none;
   border: 1px solid #D3D3D3;
+    height: 430px;
 }
 .card-style a {
   padding: 5px;
