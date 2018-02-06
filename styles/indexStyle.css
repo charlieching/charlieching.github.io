@@ -157,10 +157,13 @@ h2 {
 }
 .lang-list {
   margin: 0;
+  padding: 0;
 }
 .lang-list li {
   display: inline-block;
-  padding: 10px;
+
+  padding: 5px;
+  list-style: none;
   background-color: #D3D3D3;
 
   border-radius: 3px;
@@ -228,7 +231,7 @@ h2 {
 .card-style {
   border: none;
   border: 1px solid #D3D3D3;
-  height: 430px;
+  height: 580px;
 }
 .card-style a {
   padding: 5px;
