@@ -1,0 +1,151 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+p, h1 {
+  margin: 0;
+}
+
+.intro {
+  font-size: 20px;
+}
+
+.border {
+  border: 2px solid;
+}
+
+.right-tri-blue {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 150px 100vw;
+  border-color: transparent transparent #007bff transparent;
+  background-color: #fff;
+}
+
+.right-tri-white {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 150px 100vw;
+  border-color: transparent transparent #fff transparent;
+  background-color: #007bff;
+}
+
+.blue-bkg {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.hero {
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+.links a:hover {
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.8;
+}
+.links a:visited {
+  text-decoration: none;
+  color: #fff;
+}
+
+.button {
+  background-color: #007bff;
+  border-radius: 10px;
+  color: #fff;
+  padding: 15px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+}
+.button-center a:hover {
+  text-decoration: none;
+  color: #007bff;
+  opacity: 0.8;
+}
+.button-center a:visited {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.button-resume {
+  background-color: #fff;
+  border-radius: 10px;
+  color: #007bff;
+  padding: 15px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.links {
+  padding-top: 20px;
+}
+
+#education, #work, #projects, #contact {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.header {
+  padding-bottom: 20px;
+}
+
+.work-items, .project-items {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.work-name {
+  font-weight: bold;
+}
+.work-name a {
+  color: #007bff;
+}
+.work-name a:visited {
+  color: #007bff;
+}
+.work-name a:hover {
+  opacity: 0.5;
+}
+
+.project-name {
+  font-weight: bold;
+}
+.project-name a {
+  color: white;
+}
+.project-name a:visited {
+  color: white;
+}
+.project-name a:hover {
+  opacity: 0.5;
+}
+
+.icons a {
+  color: #292b2c;
+}
+.icons a:hover {
+  opacity: 0.5;
+}
+.icons a:visited {
+  color: #292b2c;
+}
+
+.contact-link {
+  font-size: 50px;
+}
+
+.signature {
+  font-size: 20px;
+  padding-top: 80px;
+}
