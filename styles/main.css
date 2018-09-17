@@ -44,6 +44,10 @@ p, h1 {
   padding-bottom: 200px;
 }
 
+.links a {
+  margin-bottom: 10px;
+  display: inline-block;
+}
 .links a:hover {
   text-decoration: none;
   color: #fff;
